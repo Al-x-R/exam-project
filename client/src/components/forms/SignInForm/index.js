@@ -1,50 +1,56 @@
-import React, { useCallback } from 'react';
+import React, {useCallback} from 'react';
 import PropTypes from 'prop-types';
 import * as Yup from 'yup';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import {Formik, Form, Field, ErrorMessage} from 'formik';
+import styles from './SignInForm.module.sass';
+import {Link} from 'react-router-dom';
 
 const initialValues = {
-  email: '',
-  password: '',
+    email: '',
+    password: '',
 };
 
 const validationSchema = Yup.object({
-  email: Yup.string().trim().email().required(),
-  password: Yup.string().required(),
+    email: Yup.string().trim().email().required(),
+    password: Yup.string().required(),
 });
 
 function SignInForm(props) {
-  const { onSubmit } = props;
+    const {onSubmit} = props;
 
-  const handleSubmit = useCallback(
-    (values, formikBag) => {
-      onSubmit(values);
-    },
-    [onSubmit]
-  );
+    const handleSubmit = useCallback(
+        (values, formikBag) => {
+            onSubmit(values);
+        },
+        [onSubmit],
+    );
 
-  return (
-    <Formik
-      initialValues={initialValues}
-      onSubmit={handleSubmit}
-      validationSchema={validationSchema}
-    >
-      {() => (
-        <Form>
-          <Field name="email" />
-          <ErrorMessage name="email" />
-          <Field name="password" />
-          <ErrorMessage name="password" />
-
-          <button type="submit">Sign Up</button>
-        </Form>
-      )}
-    </Formik>
-  );
+    return (
+        <Formik
+            initialValues={initialValues}
+            onSubmit={handleSubmit}
+            validationSchema={validationSchema}
+        >
+            {() => (
+                <Form className={styles.loginForm}>
+                    <Field name="email"
+                           placeholder="Email address"
+                           className={styles.input}/>
+                    <ErrorMessage name="email" className={styles.error}/>
+                    <Field name="password"
+                           placeholder="Password"
+                           className={styles.input}/>
+                    <ErrorMessage name="password" className={styles.error}/>
+                    <Link to='/forgot_password' className={styles.forgotPassword}>Forgot Password</Link>
+                    <button type="submit" className={styles.submitButton}>Login</button>
+                </Form>
+            )}
+        </Formik>
+    );
 }
 
 SignInForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
+    onSubmit: PropTypes.func.isRequired,
 };
 
 export default SignInForm;
