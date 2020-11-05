@@ -7,6 +7,7 @@ import SignUpForm from '../../components/forms/SignUpForm';
 import {userSelector} from '../../selectors';
 import styles from './AuthPage.module.sass'
 import logo from './logo.png'
+import PricingQuestionsSection from '../../components/PricingQuestionsSection/PricingQuestionsSection';
 
 function AuthPage() {
     const [isLogin, setIsLogin] = useState();
@@ -55,6 +56,7 @@ function AuthPage() {
                 </Link>
                 <Form onSubmit={handleSubmit}/>
             </section>
+            {isLogin ? null : <PricingQuestionsSection />}
         </div>
     );
 }
