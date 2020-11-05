@@ -7,12 +7,12 @@ import styles from './SignUpForm.module.sass';
 import RoleInput from '../../RoleInput/RoleInput';
 
 const initialValues = {
-    firstName: 'Test',
-    lastName: 'Testovich',
-    displayName: 'teset' + Date.now(),
-    email: `test${Date.now()}@gmail.com`,
-    password: 'Test12345',
-    confirmPassword: 'Test12345',
+    firstName: '',
+    lastName: '',
+    displayName: '',
+    email: ``,
+    password: '',
+    confirmPassword: '',
     role: ROLES.CUSTOMER,
 };
 
@@ -54,26 +54,45 @@ function SignUpForm(props) {
             validationSchema={validationSchema}>
             {() => (
                 <Form className={styles.form}>
-                    <div className={styles.row}>
-                        <Field name="firstName" className={styles.input}/>
-                        <ErrorMessage name="firstName"/>
-                        <Field name="lastName" className={styles.input}/>
-                        <ErrorMessage name="lastName"/>
+                    <div className={styles.wrapper}>
+                        <Field name="firstName"
+                               placeholder="First name"
+                               className={styles.input}/>
+                        <ErrorMessage name="firstName" component="span" className={styles.error}/>
                     </div>
-                    <div className={styles.row}>
-                        <Field name="displayName" className={styles.input}/>
-                        <ErrorMessage name="displayName"/>
-                        <Field name="email" className={styles.input}/>
-                        <ErrorMessage name="email"/>
+                    <div className={styles.wrapper}>
+                        <Field name="lastName"
+                               placeholder="Last name"
+                               className={styles.input}/>
+                        <ErrorMessage name="lastName" component="span" className={styles.error}/>
                     </div>
-                    <div className={styles.row}>
-                        <Field name="password" className={styles.input}/>
-                        <ErrorMessage name="password"/>
-                        <Field name="confirmPassword" className={styles.input}/>
-                        <ErrorMessage name="confirmPassword"/>
+                    <div className={styles.wrapper}>
+                        <Field name="displayName"
+                               placeholder="Display name"
+                               className={styles.input}/>
+                        <ErrorMessage name="displayName" component="span" className={styles.error}/>
+                    </div>
+                    <div className={styles.wrapper}>
+                        <Field name="email"
+                               placeholder="Email"
+                               className={styles.input}/>
+                        <ErrorMessage name="email" component="span" className={styles.error}/>
+                    </div>
+                    <div className={styles.wrapper}>
+                        <Field name="password"
+                               placeholder="Password"
+                               className={styles.input}/>
+                        <ErrorMessage name="password" component="span" className={styles.error}/>
+                    </div>
+                    <div className={styles.wrapper}>
+                        <Field name="confirmPassword"
+                               placeholder="Password confirmation"
+                               className={styles.input}/>
+                        <ErrorMessage name="confirmPassword" component="span" className={styles.error}/>
                     </div>
                     <div className={styles.choseRoleContainer}>
                         <Field
+                            className={styles.input}
                             name="role"
                             type="radio"
                             value={ROLES.CUSTOMER}
@@ -83,6 +102,7 @@ function SignUpForm(props) {
                             id={ROLES.CUSTOMER}
                         />
                         <Field
+                            className={styles.input}
                             name="role"
                             type="radio"
                             value={ROLES.CREATOR}

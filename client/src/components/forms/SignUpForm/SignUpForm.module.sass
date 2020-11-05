@@ -1,36 +1,53 @@
+*
+  box-sizing: border-box
+
 .form
-  width: 580px
+  max-width: 580px
   display: flex
   flex-wrap: wrap
   justify-content: space-between
   margin: auto
 
-  .row
-    width: 100%
-    min-width: 260px
-    display: flex
-    flex-direction: row
-    flex-wrap: wrap
-    align-items: center
-    justify-content: space-between
+  .wrapper
+    position: relative
+    width: 48%
+    @media(max-width: 580px)
+      width: 100%
+      margin: 0 10px
 
     .input
+      width: 100%
       background-color: white
       border: 2px solid white
       border-radius: 4px
       color: #9ca8b7
       font-size: 18px
-      padding: 23px 20px 23px 20px
+      padding: 23px 20px
       outline: none
       margin-bottom: 15px
-      flex: 1
 
-      &:nth-child(odd)
-        margin-right: 12px
+    .error
+      position: absolute
+      top: 0
+      left: 0
+      z-index: 10
+      padding: 5px 25px
+      font-size: 13px
+      text-align: left
+      color: black
+      border: 1px solid red
+      border-radius: 6px
+      background-color: rgba(236, 72, 72, 0.5)
+      text-overflow: ellipsis
+      white-space: nowrap
+      overflow: hidden
 
-      &:nth-child(even)
-        margin-left: 12px
-
+  .choseRoleContainer
+    width: 100%
+    display: flex
+    flex-direction: column
+    @media(max-width: 580px)
+      margin: 0 10px
 
   .submit
     height: 64px
@@ -43,12 +60,8 @@
     font-size: 16px
     font-weight: 500
     cursor: pointer
-
-
-  .choseRoleContainer
-    display: flex
-    flex-direction: column
-    flex: 1
+    @media(max-width: 580px)
+      margin: 0 10px
 
   .fineprint
     display: flex

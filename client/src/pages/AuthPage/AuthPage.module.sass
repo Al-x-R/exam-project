@@ -8,12 +8,15 @@
     margin: auto
     padding-top: 40px
     display: flex
+    flex-wrap: wrap
     justify-content: space-between
 
   .brand
     padding-left: 50px
     width: 150px
     height: 50px
+    @media(max-width: 480px)
+      padding: 0
 
     & > img
       width: inherit
@@ -21,7 +24,7 @@
 
   .loginBtn
     box-sizing: border-box
-    margin-right: 80px
+    margin-right: 10%
     display: flex
     justify-content: center
     align-items: center
@@ -34,6 +37,10 @@
     font-size: 18px
     font-weight: bold
     line-height: 22px
+    @media(max-width: 480px)
+      width: 30%
+      margin: 0
+
 
 .pageContent
   display: flex
@@ -49,6 +56,8 @@
     line-height: 1.1
     font-weight: 600
     letter-spacing: 0
+    @media(max-width: 480px)
+      padding: 0
 
   .pageDescription
     color: white

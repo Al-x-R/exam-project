@@ -33,14 +33,18 @@ function SignInForm(props) {
         >
             {() => (
                 <Form className={styles.loginForm}>
-                    <Field name="email"
-                           placeholder="Email address"
-                           className={styles.input}/>
-                    <ErrorMessage name="email" className={styles.error}/>
-                    <Field name="password"
-                           placeholder="Password"
-                           className={styles.input}/>
-                    <ErrorMessage name="password" className={styles.error}/>
+                    <div className={styles.wrapper}>
+                        <Field name="email"
+                               placeholder="Email address"
+                               className={styles.input}/>
+                        <ErrorMessage name="email" component="span" className={styles.error}/>
+                    </div>
+                    <div className={styles.wrapper}>
+                        <Field name="password"
+                               placeholder="Password"
+                               className={styles.input}/>
+                        <ErrorMessage name="password" component="span" className={styles.error}/>
+                    </div>
                     <Link to='/forgot_password' className={styles.forgotPassword}>Forgot Password</Link>
                     <button type="submit" className={styles.submitButton}>Login</button>
                 </Form>
