@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './PricingQuestionsSection.module.sass'
+import styles from './PricingQuestionsSection.module.sass';
 
 const PricingQuestionsSection = () => {
     return (

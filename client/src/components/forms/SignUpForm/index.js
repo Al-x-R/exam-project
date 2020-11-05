@@ -94,8 +94,8 @@ function SignUpForm(props) {
                     </div>
                     <button type="submit" className={styles.submit}>Sign Up</button>
                     <div className={styles.fineprint}>
-                        <p>By clicking this button, you agree to our
-                            <a href="https://www.google.com" target="_blank"> Terms of Service</a>.
+                        <p>By clicking this button, you agree to our <a href="https://www.google.com" target="_blank">Terms
+                            of Service</a>.
                         </p>
                     </div>
                 </Form>

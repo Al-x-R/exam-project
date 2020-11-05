@@ -5,8 +5,8 @@ import {loginRequest, signUpRequest} from '../../actions/authActionCreators';
 import SignInForm from '../../components/forms/SignInForm';
 import SignUpForm from '../../components/forms/SignUpForm';
 import {userSelector} from '../../selectors';
-import styles from './AuthPage.module.sass'
-import logo from './logo.png'
+import styles from './AuthPage.module.sass';
+import logo from './logo.png';
 import PricingQuestionsSection from '../../components/PricingQuestionsSection/PricingQuestionsSection';
 
 function AuthPage() {
@@ -36,27 +36,28 @@ function AuthPage() {
     return (
         <div className={styles.page}>
             <header className={styles.header}>
-                    <Link to='/' className={styles.brand}>
-                        <img src={logo} alt="Logo"/>
-                    </Link>
-                    {
-                        isLogin ?
-                            <Link className={styles.loginBtn} to='/signup'>
-                                Signup
-                            </Link> :
-                            <Link className={styles.loginBtn} to='/login'>
-                                Login
-                            </Link>
-                    }
+                <Link to='/' className={styles.brand}>
+                    <img src={logo} alt="Logo"/>
+                </Link>
+                {
+                    isLogin ?
+                        <Link className={styles.loginBtn} to='/signup'>
+                            Signup
+                        </Link> :
+                        <Link className={styles.loginBtn} to='/login'>
+                            Login
+                        </Link>
+                }
             </header>
             <section className={styles.pageContent}>
                 <h1 className={styles.pageTitle}>{pageTitle}</h1>
-                {!isLogin && <p className={styles.pageDescription}>We always keep your name and email address private.</p>}
+                {!isLogin &&
+                <p className={styles.pageDescription}>We always keep your name and email address private.</p>}
                 <Link to={isLogin ? '/signup' : '/login'}>
                 </Link>
                 <Form onSubmit={handleSubmit}/>
             </section>
-            {isLogin ? null : <PricingQuestionsSection />}
+            {isLogin ? null : <PricingQuestionsSection/>}
         </div>
     );
 }
