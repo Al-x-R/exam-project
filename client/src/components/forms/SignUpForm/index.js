@@ -24,17 +24,17 @@ const passwordRule = [
 const roles = Object.values(ROLES);
 
 const validationSchema = Yup.object({
-    firstName: Yup.string().trim().required(),
-    lastName: Yup.string().trim().required(),
-    displayName: Yup.string().trim().required(),
-    email: Yup.string().trim().email().required(),
+    firstName: Yup.string().trim().required('This field is required'),
+    lastName: Yup.string().trim().required('This field is required'),
+    displayName: Yup.string().trim().required('This field is required'),
+    email: Yup.string().trim().email().required('This field is required'),
     password: Yup.string()
         .matches(...passwordRule)
-        .required(),
+        .required('This field is required'),
     confirmPassword: Yup.string()
         .oneOf([Yup.ref('password'), null], 'Passwords must match')
-        .required(),
-    role: Yup.string().oneOf(roles).required(),
+        .required('This field is required'),
+    role: Yup.string().oneOf(roles).required('You must choose one of the roles'),
 });
 
 function SignUpForm(props) {
@@ -90,27 +90,36 @@ function SignUpForm(props) {
                                className={styles.input}/>
                         <ErrorMessage name="confirmPassword" component="span" className={styles.error}/>
                     </div>
-                    <div className={styles.choseRoleContainer}>
-                        <Field
-                            className={styles.input}
-                            name="role"
-                            type="radio"
-                            value={ROLES.CUSTOMER}
-                            strRole="Join As a Buyer"
-                            infoRole="I am looking for a Name, Logo or Tagline for my business, brand or product."
-                            component={RoleInput}
-                            id={ROLES.CUSTOMER}
-                        />
-                        <Field
-                            className={styles.input}
-                            name="role"
-                            type="radio"
-                            value={ROLES.CREATOR}
-                            strRole="Join As a Creative"
-                            infoRole="I plan to submit name ideas, Logo designs or sell names in Domain Marketplace."
-                            component={RoleInput}
-                            id={ROLES.CREATOR}
-                        />
+                    <div role="group" className={styles.choseRoleContainer}>
+                        <div className={styles.roleContainer}>
+                            <Field
+                                type="radio"
+                                className={styles.input}
+                                name="role"
+                                value={ROLES.CUSTOMER}
+                            />
+                            <div className={styles.infoRoleContainer}>
+                                <span className={styles.role}>Join As a Buyer</span>
+                                <span className={styles.infoRole}>I am looking for a Name, Logo or Tagline for my business, brand or product.</span>
+                            </div>
+
+                        </div>
+
+                        <ErrorMessage name="role" component="span" className={styles.error}/>
+                        <div className={styles.roleContainer}>
+                            <Field
+                                type="radio"
+                                className={styles.input}
+                                name="role"
+                                value={ROLES.CREATOR}
+                            />
+                            <div className={styles.infoRoleContainer}>
+                                <span className={styles.role}>Join As a Creative</span>
+                                <span className={styles.infoRole}>I plan to submit name ideas, Logo designs or sell names in Domain Marketplace.</span>
+                            </div>
+
+                        </div>
+
                     </div>
                     <button type="submit" className={styles.submit}>Sign Up</button>
                     <div className={styles.fineprint}>
