@@ -40,12 +40,19 @@ function ForgotPasswordForm(props) {
             {() => (
                 <Form className={styles.form}>
                     <div className={styles.field}>
-                        <Field name="email" className={styles.input}/>
-                        <ErrorMessage name="email" />
+                        <Field name="email"
+                               placeholder="Enter your email address"
+                               className={styles.input}/>
+                        <ErrorMessage name="email" component="span" className={styles.error}/>
                     </div>
                     <div className={styles.field}>
-                        <Field name="password" className={styles.input}/>
-                        <ErrorMessage name="password" />
+                        <Field name="password"
+                               type="password"
+                               placeholder="Enter new password"
+                               className={styles.input}/>
+                        <ErrorMessage name="password" component="span" className={styles.error}
+                                      title="Your password must be at least 8 characters, and include at least one
+                                      lowercase letter, one uppercase letter, and a number."/>
                     </div>
 
                     <button type="submit" className={styles.submit}>Get password</button>
