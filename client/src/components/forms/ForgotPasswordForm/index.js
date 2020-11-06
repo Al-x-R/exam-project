@@ -9,9 +9,16 @@ const initialValues = {
     password: '',
 };
 
+const passwordRule = [
+    /(?=.*?\d)(?=.*?[A-Z])(?=.*?[a-z])^.{8,255}$/,
+    'Your password must be at least 8 characters, and include at least one lowercase letter, one uppercase letter, and a number. ',
+];
+
 const validationSchema = Yup.object({
     email: Yup.string().trim().email().required(),
-    password: Yup.string().required(),
+    password: Yup.string()
+        .matches(...passwordRule)
+        .required('This field is required'),
 });
 
 function ForgotPasswordForm(props) {
