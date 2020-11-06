@@ -1,10 +1,25 @@
 import React from 'react';
+import styles from './RecoverPassword.module.sass';
+import CONSTANTS from '../../constants';
+import {Link} from 'react-router-dom';
 
 const RecoverPassword = () => {
     return (
-        <div>
-            
-        </div>
+        <>
+            <section className={styles.main}>
+                <div className={styles.container}>
+                    <div className={styles.logoBlock}>
+                        <Link to="/">
+                            <img
+                                src={`${CONSTANTS.STATIC_IMAGES_PATH}logo.png`}
+                                className={styles.logoImg}
+                                alt="logo"/>
+                        </Link>
+                        <div className={styles.tagline}>Collective Wisdom. Real Results.</div>
+                    </div>
+                </div>
+            </section>
+        </>
     );
 };
 
