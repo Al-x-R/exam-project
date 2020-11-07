@@ -3,6 +3,8 @@ import styles from './RecoverPassword.module.sass';
 import CONSTANTS from '../../constants';
 import {Link} from 'react-router-dom';
 import ForgotPasswordForm from '../../components/forms/ForgotPasswordForm';
+import GetInTouch from '../../components/GetInTouch/GetInTouch';
+import Footer from '../../components/Footer/Footer';
 
 const RecoverPassword = () => {
     return (
@@ -20,11 +22,12 @@ const RecoverPassword = () => {
                     </div>
                     <div className={styles.formBox}>
                         <h2>Forgot Password</h2>
-                        <ForgotPasswordForm />
+                        <ForgotPasswordForm/>
                     </div>
-
                 </div>
             </section>
+            <GetInTouch/>
+            <Footer/>
         </>
     );
 };
