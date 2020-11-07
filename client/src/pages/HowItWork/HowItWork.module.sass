@@ -1,0 +1,134 @@
+$color: #28d2d0
+
+.how_it_work_page
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+
+  .container
+    margin: auto
+    max-width: 1170px
+    text-align: center
+
+    h3
+      color: #515b5f
+      font-weight: 500
+      font-family: 'Raleway Bold', sans-serif
+      font-size: 36px
+      text-align: center
+      padding: 50px 0
+
+  .how_it_work
+    display: flex
+    flex-wrap: wrap
+    padding: 80px 0
+    @media screen and (max-width: 1150px)
+      padding: 50px 0
+
+    .video_instruction
+      padding: 0 15px
+      //@media screen and (max-width: 1150px)
+      //margin: auto
+      video
+        width: 560px
+        height: 312px
+        @media screen and (max-width: 1150px)
+          width: 500px
+        //margin-right: 20px
+        @media screen and (max-width: 750px)
+          width: 100%
+
+    .instruction
+      width: 560px
+      padding: 0 15px
+      text-align: left
+      @media screen and (max-width: 1150px)
+        width: 520px
+      //margin: auto
+      //text-align: center
+      //padding: 20px 0
+
+      h2
+        font-family: 'Raleway Bold', sans-serif
+        font-size: 36px
+        line-height: 40px
+        padding-bottom: 25px
+        color: #515b5f
+        font-weight: 500
+
+      p
+        font-family: 'Raleway Regular', sans-serif
+        font-size: 16px
+        font-weight: 300
+        line-height: 25px
+        color: #333
+
+  .steps
+    display: flex
+    justify-content: space-evenly
+    flex-wrap: wrap
+    //max-width: 1160px
+    margin: auto
+    padding: 25px 0
+
+  .how_it_work_btn
+    color: #333
+    font-family: 'Raleway Regular', sans-serif !important
+    font-size: 16px
+    font-weight: 300
+    background: $color
+    margin: 15px -68px 45px
+    text-align: center
+    padding: 35px 0
+
+    a
+      text-decoration: none
+      font-weight: 300
+      font-family: 'Raleway Bold', sans-serif
+      color: #fff
+      font-size: 20px
+      text-align: center
+      text-transform: uppercase
+      padding: 18px 0
+      border: 2px solid #fff
+      border-radius: 5px
+      display: block
+      width: 235px
+      margin: auto
+
+      &:hover
+        background-color: #fff
+        color: $color
+
+  .general_questions
+    display: flex
+    border-bottom: 1px solid #e1e1e1
+
+    .question_mark
+      $size: 60px
+      border: 2px solid $color
+      color: $color
+      font-size: 36px
+      line-height: 60px
+      text-align: center
+      width: $size
+      height: $size
+      border-radius: 50%
+
+    .question_title
+      display: block
+      font-size: 16px
+      font-weight: 300
+      line-height: 1
+      padding: 10px 15px
+
+      h4
+        box-sizing: border-box
+        font-weight: 500
+        line-height: 1.1
+        color: #515b5f
+        margin: 0 0 20px 0 !important
+        font-family: 'Raleway Bold', sans-serif
+        font-size: 30px
+        padding-bottom: 10px
