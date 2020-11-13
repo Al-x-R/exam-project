@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import {
   getContestsForCreative,
   clearContestList,
@@ -58,6 +58,7 @@ class CreatorDashboard extends React.Component {
   renderIndustryType = () => {
     const array = [];
     const { creatorFilter } = this.props;
+    // console.log(this.props.dataForContest)
     const { industry } = this.props.dataForContest.data;
     array.push(
       <option key={0} value={null}>

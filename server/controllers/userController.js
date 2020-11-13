@@ -102,7 +102,7 @@ module.exports.changeMark = async (req, res, next) => {
   let avg = 0;
   let transaction;
   const { isFirst, offerId, mark, creatorId } = req.body;
-  const userId = req.tokenData.userId;
+  const userId = req.tokenPayload.userId;
   try {
     transaction = await sequelize.transaction({
       isolationLevel: Sequelize.Transaction.ISOLATION_LEVELS.READ_UNCOMMITTED,
@@ -180,7 +180,7 @@ module.exports.payment = async (req, res, next) => {
           : Math.floor(req.body.price / req.body.contests.length);
       contest = Object.assign(contest, {
         status: index === 0 ? 'active' : 'pending',
-        userId: req.tokenData.userId,
+        userId: req.tokenPayload.userId,
         priority: index + 1,
         orderId: orderId,
         createdAt: moment().format('YYYY-MM-DD HH:mm'),
@@ -203,7 +203,7 @@ module.exports.updateUser = async (req, res, next) => {
     }
     const updatedUser = await userQueries.updateUser(
       req.body,
-      req.tokenData.userId
+      req.tokenPayload.userId
     );
     res.send({
       firstName: updatedUser.firstName,
@@ -226,7 +226,7 @@ module.exports.cashout = async (req, res, next) => {
     transaction = await sequelize.transaction();
     const updatedUser = await userQueries.updateUser(
       { balance: sequelize.literal('balance - ' + req.body.sum) },
-      req.tokenData.userId,
+      req.tokenPayload.userId,
       transaction
     );
     await bankQueries.updateBankBalance(
