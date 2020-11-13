@@ -14,13 +14,14 @@ const userQueries = require('./queries/userQueries');
 const controller = require('../socketInit');
 const UtilFunctions = require('../utils/functions');
 const CONSTANTS = require('../constants');
+const { Op } = require("sequelize")
 
 module.exports.dataForContest = async (req, res, next) => {
   const response = {};
   try {
     const whereOption = {
       type: {
-        [Sequelize.Op.or]: _.compact([
+        [Op.or]: _.compact([
           req.body.characteristic1,
           req.body.characteristic2,
           'industry',
