@@ -41,6 +41,7 @@ function SignInForm(props) {
                     </div>
                     <div className={styles.wrapper}>
                         <Field name="password"
+                               // type="password"
                                placeholder="Password"
                                className={styles.input}/>
                         <ErrorMessage name="password" component="span" className={styles.error}/>

@@ -23,7 +23,7 @@ function Header() {
           <div className={styles.userInfo}>
             <img
               src={
-                user.avatar === 'anon.png'
+                user.avatar === null
                   ? CONSTANTS.ANONYM_IMAGE_PATH
                   : `${CONSTANTS.publicURL}${user.avatar}`
               }
