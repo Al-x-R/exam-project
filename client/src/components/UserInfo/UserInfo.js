@@ -91,8 +91,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        updateUser: (user) => dispatch(updateUserData(user)),
-        changeEditMode: (user) => dispatch(changeEditModeOnUserProfile(user)),
+        updateUser: (data) => dispatch(updateUserData(data)),
+        changeEditMode: (data) => dispatch(changeEditModeOnUserProfile(data)),
     };
 };
 
