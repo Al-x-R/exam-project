@@ -86,9 +86,7 @@ const UserProfile = (props) => {
 
 const mapStateToProps = (state) => {
   const { balance, role } = state.auth.user;
-  console.log('state.auth.user - ', state.auth.user)
   const { profileModeView } = state.userProfile;
-  console.log('profileModeView', state.userProfile)
   const { error } = state.payment;
   return { balance, role, profileModeView, error };
 };
