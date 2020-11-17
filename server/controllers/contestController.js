@@ -14,14 +14,13 @@ const userQueries = require('./queries/userQueries');
 const controller = require('../socketInit');
 const UtilFunctions = require('../utils/functions');
 const CONSTANTS = require('../constants');
-const { Op } = require("sequelize")
 
 module.exports.dataForContest = async (req, res, next) => {
   const response = {};
   try {
     const whereOption = {
       type: {
-        [Op.or]: _.compact([
+        [Sequelize.Op.or]: _.compact([
           req.body.characteristic1,
           req.body.characteristic2,
           'industry',
@@ -64,7 +63,7 @@ module.exports.getContestById = async (req, res, next) => {
           model: Offer,
           required: false,
           where:
-            req.tokenPayload.userRole === CONSTANTS.CREATOR
+            req.tokenPayload.role === CONSTANTS.CREATOR
               ? { userId: req.tokenPayload.userId }
               : {},
           attributes: { exclude: ['userId', 'contestId'] },
