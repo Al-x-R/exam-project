@@ -65,19 +65,15 @@ class AuthApi {
         if (this.#_token) {
             config.headers['Authorization'] = `Bearer ${this.#_token}`;
         }
-        console.log(" >>>>>>>>> TO CHECK (get)" + this.#_token);
-
         return config;
     };
 
 
     interceptResponse = response => {
-        console.log(response);
         const {
             config: {url},
             data,
         } = response;
-        console.log('url.indexOf() - ' + url + "   " + this.url + " res = " + url.indexOf(this.url))
 
         if (url.indexOf(this.url) === 25) {
             const {
@@ -86,9 +82,6 @@ class AuthApi {
                 },
             } = data;
             this.#_token = accessToken;
-
-            console.log(" >>>>>>>>> TO CHECK (set)" + this.#_token);
-
             localStorage.setItem(REFRESH_TOKEN_KEY, refreshToken);
             localStorage.setItem(ACCESS_TOKEN_KEY, accessToken);
         }
