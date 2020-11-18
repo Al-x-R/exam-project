@@ -140,7 +140,7 @@ module.exports.payment = async (req, res, next) => {
     const {
       body: { cvc, expiry, price, number },
     } = req;
-    const squadhelpCreditCardNumber = process.env.SQUADHELP_CREDIT_CARD_NUMBER;
+    const squadhelpCreditCardNumber = process.env.SQUADHELP_CREDIT_CARD_NUMBER || '4564654564564564';
 
     const clientCreditCard = await CreditCard.findOne({
       where: {
@@ -160,14 +160,14 @@ module.exports.payment = async (req, res, next) => {
 
     await clientCreditCard.update(
       {
-        balance: Sequelize.literal(`"Banks"."balance" - ${price}`),
+        balance: Sequelize.literal(`"CreditCards"."balance" - ${price}`),
       },
       { transaction }
     );
 
     await squadhelpCreditCard.update(
       {
-        balance: Sequelize.literal(`"Banks"."balance" + ${price}`),
+        balance: Sequelize.literal(`"CreditCards"."balance" + ${price}`),
       },
       { transaction }
     );
