@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import {
   getDialogMessages,
   clearMessageList,
-} from "../../../../actions/actionCreator";
+} from "../../../../app/store/actions/actionCreator";
 import ChatHeader from "../../ChatComponents/ChatHeader/ChatHeader";
 import moment from "moment";
 import className from "classnames";

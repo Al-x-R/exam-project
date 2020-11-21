@@ -4,7 +4,7 @@ import UpdateUserInfoForm from "../../components/UpdateUserInfoForm/UpdateUserIn
 import {
     updateUserData,
     changeEditModeOnUserProfile,
-} from "../../actions/actionCreator";
+} from "../../app/store/actions/actionCreator";
 import CONSTANTS from "../../constants";
 import styles from "./UserInfo.module.sass";
 

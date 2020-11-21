@@ -10,7 +10,7 @@ import {
   cashOut,
   changeProfileModeView,
   clearPaymentStore,
-} from "../../actions/actionCreator";
+} from "../../app/store/actions/actionCreator";
 import Error from "../../components/Error/Error";
 
 const UserProfile = (props) => {

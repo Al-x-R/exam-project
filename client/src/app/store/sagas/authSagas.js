@@ -1,6 +1,6 @@
 import { put } from 'redux-saga/effects';
 import * as AuthActionCreators from '../actions/authActionCreators';
-import * as Api from './../api/http';
+import * as Api from '../../../api/http';
 
 const createAuthSaga = apiMethod =>
   function* authSaga(action) {

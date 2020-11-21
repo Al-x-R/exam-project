@@ -6,7 +6,7 @@ import {
   changeChatFavorite,
   changeChatBlock,
   changeShowAddChatToCatalogMenu,
-} from "../../../../actions/actionCreator";
+} from "../../../../app/store/actions/actionCreator";
 import moment from "moment";
 import DialogBox from "../DialogBox/DialogBox";
 import styles from "./DialogList.module.sass";

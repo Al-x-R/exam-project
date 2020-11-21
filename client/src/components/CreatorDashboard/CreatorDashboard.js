@@ -6,7 +6,7 @@ import {
   clearContestList,
   setNewCreatorFilter,
   getDataForContest,
-} from '../../actions/actionCreator';
+} from '../../app/store/actions/actionCreator';
 import ContestsContainer from '../../components/ContestsContainer/ContestsContainer';
 import ContestBox from '../ContestBox/ContestBox';
 import styles from './CreatorDashboard.module.sass';

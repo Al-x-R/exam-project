@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { authActionLogin, clearAuth } from '../../actions/actionCreator';
+import { authActionLogin, clearAuth } from '../../app/store/actions/actionCreator';
 import { Redirect } from 'react-router-dom';
 import styles from './LoginForm.module.sass';
 import { Field, reduxForm } from 'redux-form';
@@ -8,7 +8,7 @@ import FormInput from '../FormInput/FormInput';
 import customValidator from '../../validators/validator';
 import Schems from '../../validators/validationSchems';
 import Error from '../../components/Error/Error';
-import { loginRequest } from '../../actions/authActionCreators';
+import { loginRequest } from '../../app/store/actions/authActionCreators';
 
 class LoginForm extends React.Component {
   componentWillUnmount() {

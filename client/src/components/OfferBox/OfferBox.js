@@ -9,7 +9,7 @@ import {
   goToExpandedDialog,
   changeShowImage,
   changeModalShow,
-} from '../../actions/actionCreator';
+} from '../../app/store/actions/actionCreator';
 import { withRouter } from 'react-router-dom';
 import { isEqual } from 'lodash';
 import classNames from 'classnames';

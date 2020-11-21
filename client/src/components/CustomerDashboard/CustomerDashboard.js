@@ -4,7 +4,7 @@ import {
   getContestsForCustomer,
   clearContestList,
   setNewCustomerFilter,
-} from "../../actions/actionCreator";
+} from "../../app/store/actions/actionCreator";
 import CONSTANTS from "../../constants";
 import ContestsContainer from "../../components/ContestsContainer/ContestsContainer";
 import ContestBox from "../ContestBox/ContestBox";
