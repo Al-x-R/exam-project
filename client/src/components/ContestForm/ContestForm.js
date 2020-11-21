@@ -1,7 +1,7 @@
 import React from "react";
 import CONSTANTS from "../../constants";
 import { connect } from "react-redux";
-import { getDataForContest } from "../../actions/actionCreator";
+import { getDataForContest } from "../../app/store/actions/actionCreator";
 import { withRouter } from "react-router-dom";
 import styles from "./ContestForm.module.sass";
 import Spinner from "../Spinner/Spinner";

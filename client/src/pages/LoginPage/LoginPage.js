@@ -3,7 +3,7 @@ import LoginForm from "../../components/LoginForm/LoginForm";
 import styles from "./LoginPage.module.sass";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { clearErrorSignUpAndLogin } from "../../actions/actionCreator";
+import { clearErrorSignUpAndLogin } from "../../app/store/actions/actionCreator";
 import CONSTANTS from "../../constants";
 
 const LoginPage = (props) => {

@@ -3,7 +3,7 @@ import {
   updateContest,
   changeEditContest,
   clearUpdateContestStore,
-} from "../../actions/actionCreator";
+} from "../../app/store/actions/actionCreator";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import ContestForm from "../../components/ContestForm/ContestForm";

@@ -7,7 +7,7 @@ import {
   changeEditContest,
   changeContestViewMode,
   changeShowImage,
-} from "../../actions/actionCreator";
+} from "../../app/store/actions/actionCreator";
 import { connect } from "react-redux";
 import Header from "../../components/Header/Header";
 import ContestSideBar from "../../components/ContestSideBar/ContestSideBar";

@@ -3,8 +3,8 @@ import styles from './Header.module.sass';
 import { Link } from 'react-router-dom';
 import CONSTANTS, { ROLES } from '../../constants';
 import { useDispatch, useSelector } from 'react-redux';
-import { logoutRequest } from '../../actions/authActionCreators';
-import { authSelector } from '../../selectors';
+import { logoutRequest } from '../../app/store/actions/authActionCreators';
+import { authSelector } from '../../app/store/selectors';
 
 function Header() {
   const { isFetching, user } = useSelector(authSelector);

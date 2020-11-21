@@ -10,7 +10,7 @@ import {
   changeShowModeCatalog,
   clearChatError,
   getPreviewChat,
-} from '../../../../actions/actionCreator';
+} from '../../../../app/store/actions/actionCreator';
 import { chatController } from '../../../../api/ws/socketController';
 import CONSTANTS from '../../../../constants';
 import CatalogListContainer from '../../CatalogComponents/CatalogListContainer/CatalogListContainer';

@@ -1,5 +1,5 @@
 import React from 'react';
-import {selectBundle} from '../../actions/actionCreator';
+import {selectBundle} from '../../app/store/actions/actionCreator';
 import {connect, useSelector} from 'react-redux';
 import BundleBox from '../../components/BundleBox/BundleBox';
 import {ROLES} from '../../constants';
