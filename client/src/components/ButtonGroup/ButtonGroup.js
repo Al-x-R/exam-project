@@ -15,7 +15,7 @@ const defaultButtons = [
       {
         id: 2,
         title: 'Yes',
-        description: 'But minor variations are allowed (Recommended',
+        description: 'But minor variations are allowed (Recommended)',
       },
   },
   {
