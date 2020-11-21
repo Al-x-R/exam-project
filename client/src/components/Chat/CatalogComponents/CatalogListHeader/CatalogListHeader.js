@@ -4,7 +4,7 @@ import {
   changeShowModeCatalog,
   changeRenameCatalogMode,
   changeCatalogName,
-} from "../../../../actions/actionCreator";
+} from "../../../../app/store/actions/actionCreator";
 import { Field, reduxForm } from "redux-form";
 import styles from "./CatalogHeader.module.sass";
 import FormInput from "../../../FormInput/FormInput";

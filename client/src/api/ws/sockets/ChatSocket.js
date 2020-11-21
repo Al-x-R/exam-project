@@ -3,7 +3,7 @@ import CONTANTS from '../../../constants';
 import {
   addMessage,
   changeBlockStatusInStore,
-} from '../../../actions/actionCreator';
+} from '../../../app/store/actions/actionCreator';
 import { isEqual } from 'lodash';
 
 class ChatSocket extends WebSocket {

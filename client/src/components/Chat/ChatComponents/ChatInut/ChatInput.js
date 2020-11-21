@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { sendMessageAction } from "../../../../actions/actionCreator";
+import { sendMessageAction } from "../../../../app/store/actions/actionCreator";
 import { Field, reduxForm } from "redux-form";
 import styles from "./ChatInput.module.sass";
 import CONSTANTS from "../../../../constants";

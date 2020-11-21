@@ -4,7 +4,7 @@ import styles from "./ContestCreationPage.module.sass";
 import {
   saveContestToStore,
   clearDataForContest,
-} from "../../actions/actionCreator";
+} from "../../app/store/actions/actionCreator";
 import NextButton from "../../components/NextButton/NextButton";
 import ContestForm from "../../components/ContestForm/ContestForm";
 import Schem from "../../validators/validationSchems";

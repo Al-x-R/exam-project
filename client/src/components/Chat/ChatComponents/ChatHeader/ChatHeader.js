@@ -4,7 +4,7 @@ import {
   backToDialogList,
   changeChatFavorite,
   changeChatBlock,
-} from "../../../../actions/actionCreator";
+} from "../../../../app/store/actions/actionCreator";
 import styles from "./ChatHeader.module.sass";
 import CONSTANTS from "../../../../constants";
 import classNames from "classnames";

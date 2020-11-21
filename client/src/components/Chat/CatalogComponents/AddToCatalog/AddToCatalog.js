@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Field, reduxForm } from "redux-form";
 import SelectInput from "../../../SelectInput/SelectInput";
-import { addChatToCatalog } from "../../../../actions/actionCreator";
+import { addChatToCatalog } from "../../../../app/store/actions/actionCreator";
 import styles from "./AddToCatalog.module.sass";
 
 const AddToCatalog = (props) => {

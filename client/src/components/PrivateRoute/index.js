@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { Route, Redirect, useHistory } from 'react-router-dom';
 import Spinner from '../Spinner/Spinner';
 import checkRole from './helpers/checkRole';
-import { authSelector } from '../../selectors';
+import { authSelector } from '../../app/store/selectors';
 
 function PrivateRoute({ roles, ...rest }) {
   const history = useHistory();

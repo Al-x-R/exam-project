@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import {
   getCatalogList,
   removeChatFromCatalog,
-} from "../../../../actions/actionCreator";
+} from "../../../../app/store/actions/actionCreator";
 import CatalogList from "../CatalogList/CatalogList";
 import DialogList from "../../DialogComponents/DialogList/DialogList";
 
