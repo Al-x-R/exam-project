@@ -1,6 +1,7 @@
 import { takeLatest, takeLeading, takeEvery } from 'redux-saga/effects';
 import ACTION from '../actions/actionTypes';
 import * as AuthSagas from './authSagas';
+import {updateUserData} from './userSaga'
 
 import { paymentSaga, cashoutSaga } from './paymentSaga';
 import {
@@ -37,6 +38,8 @@ function* rootSaga() {
     AuthSagas.refreshAuthSaga
   );
   yield takeLatest(AUTH_ACTION_TYPES.LOGOUT_REQUEST, AuthSagas.logoutSaga);
+  // update user info
+  yield takeLatest(ACTION.UPDATE_USER_DATA_SUCCESS, updateUserData)
   // legacy
   yield takeEvery(ACTION.GET_DATA_FOR_CONTEST_ACTION, dataForContestSaga);
   yield takeLatest(ACTION.PAYMENT_ACTION, paymentSaga);

@@ -1,4 +1,4 @@
-const bd = require('../models/index');
+const db = require('../models/index');
 const CONSTANTS = require('../constants');
 
 const types = [
@@ -13,7 +13,7 @@ const types = [
 ];
 
 function getPredicateTypes(index) {
-  return { [bd.Sequelize.Op.or]: [types[index].split(',')] };
+  return { [db.Sequelize.Op.or]: [types[index].split(',')] };
 }
 
 module.exports.createWhereForAllContests = (
@@ -32,7 +32,7 @@ module.exports.createWhereForAllContests = (
   if (awardSort) object.order.push(['prize', awardSort]);
   Object.assign(object.where, {
     status: {
-      [bd.Sequelize.Op.or]: [
+      [db.Sequelize.Op.or]: [
         CONSTANTS.CONTEST_STATUS_FINISHED,
         CONSTANTS.CONTEST_STATUS_ACTIVE,
       ],

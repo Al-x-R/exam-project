@@ -21,7 +21,7 @@ module.exports = {
         },
         {
           firstName: 'Creator',
-          lastName: 'Creatvich',
+          lastName: 'Creatorovich',
           displayName: 'creator',
           passwordHash: await bcrypt.hash('Test1234', CONSTANTS.SALT_ROUNDS),
           email: 'creator@gmail.com',

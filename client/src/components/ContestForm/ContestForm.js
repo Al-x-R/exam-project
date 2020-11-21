@@ -13,6 +13,8 @@ import Schems from "../../validators/validationSchems";
 import FieldFileInput from "../InputComponents/FieldFileInput/FieldFileInput";
 import FormTextArea from "../InputComponents/FormTextArea/FormTextArea";
 import TryAgain from "../TryAgain/TryAgain";
+import ButtonGroup from '../ButtonGroup/ButtonGroup';
+
 
 let submitFunc;
 
@@ -27,7 +29,7 @@ class ContestForm extends React.Component {
     switch (contestType) {
       case CONSTANTS.NAME_CONTEST: {
         this.props.getData({
-          characteristic1: "nameStyle",
+          characteristic1: "styleName",
           characteristic2: "typeOfName",
         });
         break;
@@ -62,7 +64,7 @@ class ContestForm extends React.Component {
                 inputHeader: styles.selectHeader,
                 selectInput: styles.select,
               }}
-              optionsArray={this.props.dataForContest.data.nameStyle}
+              optionsArray={this.props.dataForContest.styleName}
             />
             <Field
               name="typeOfName"
@@ -73,7 +75,7 @@ class ContestForm extends React.Component {
                 selectInput: styles.select,
               }}
               header="type of company"
-              optionsArray={this.props.dataForContest.data.typeOfName}
+              optionsArray={this.props.dataForContest.typeOfName}
             />
           </>
         );
@@ -106,7 +108,7 @@ class ContestForm extends React.Component {
                 selectInput: styles.select,
               }}
               header="Brand Style"
-              optionsArray={this.props.dataForContest.data.brandStyle}
+              optionsArray={this.props.dataForContest.brandStyle}
             />
           </>
         );
@@ -139,7 +141,7 @@ class ContestForm extends React.Component {
                 selectInput: styles.select,
               }}
               header="Type tagline"
-              optionsArray={this.props.dataForContest.data.typeOfTagline}
+              optionsArray={this.props.dataForContest.typeOfTagline}
             />
           </>
         );
@@ -183,7 +185,17 @@ class ContestForm extends React.Component {
                       selectInput: styles.select,
                     }}
                     header="Describe industry associated with your venture"
-                    optionsArray={this.props.dataForContest.data.industry}
+                    optionsArray={this.props.dataForContest.industry}
+                  />
+                </div>
+                <div className={styles.inputContainer}>
+                  <span className={styles.inputHeader}>
+                    Do you want a matching domain (.com URL) with your name?
+                  </span>
+                  <p className={styles.inputDescription}>If you want a matching domain, our platform will only accept those name suggestions where the domain is available. (Recommended)</p>
+                  <Field
+                  name=''
+                  component={ButtonGroup}
                   />
                 </div>
                 <div className={styles.inputContainer}>
