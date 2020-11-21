@@ -19,6 +19,7 @@ import PrivateRoute from './components/PrivateRoute';
 import Spinner from './components/Spinner/Spinner';
 import { refreshAuthRequest } from './actions/authActionCreators';
 import HowItWork from './pages/HowItWork/HowItWork';
+import EventsPage from './pages/EventsPage/EventsPage';
 
 const AuthPage = lazy(() => import('./pages/AuthPage'));
 
@@ -53,6 +54,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route path={['/login', '/signup']} component={AuthPage} />
           <Route path='/howitwork' component={HowItWork} />
+          <Route path='/events' component={EventsPage} />
           {/*<Route exact path="/login" component={LoginPage} />
         <Route exact path="/signup" component={RegistrationPage} />*/}
           <PrivateRoute
