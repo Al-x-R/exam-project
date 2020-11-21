@@ -13,6 +13,8 @@ import Schems from "../../validators/validationSchems";
 import FieldFileInput from "../InputComponents/FieldFileInput/FieldFileInput";
 import FormTextArea from "../InputComponents/FormTextArea/FormTextArea";
 import TryAgain from "../TryAgain/TryAgain";
+import ButtonGroup from '../ButtonGroup/ButtonGroup';
+
 
 let submitFunc;
 
@@ -184,6 +186,16 @@ class ContestForm extends React.Component {
                     }}
                     header="Describe industry associated with your venture"
                     optionsArray={this.props.dataForContest.industry}
+                  />
+                </div>
+                <div className={styles.inputContainer}>
+                  <span className={styles.inputHeader}>
+                    Do you want a matching domain (.com URL) with your name?
+                  </span>
+                  <p className={styles.inputDescription}>If you want a matching domain, our platform will only accept those name suggestions where the domain is available. (Recommended)</p>
+                  <Field
+                  name=''
+                  component={ButtonGroup}
                   />
                 </div>
                 <div className={styles.inputContainer}>
