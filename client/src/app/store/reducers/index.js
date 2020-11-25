@@ -10,10 +10,12 @@ import getContestByIdReducer from './getContestByIdReducer';
 import updateContestReducer from './updateContestReducer';
 import chatReducer from './chatReducer';
 import userProfileReducer from './userProfileReducer';
+import eventsReducer from './eventsReducer';
 
 const rootReducer = combineReducers({
   form: formReducer,
   auth: authReducer, // quality mark
+  events: eventsReducer,
   dataForContest: dataForContestReducer,
   payment: payReducer,
   contestByIdStore: getContestByIdReducer,
