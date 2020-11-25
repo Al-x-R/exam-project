@@ -9,18 +9,18 @@ const initialState = {
 let id = 0;
 
 const handlers = {
-  [ACTION_TYPE.ADD_EVENT]: produce((draftState, { payload: { data } }) => {
+  [ACTION_TYPE.ADD_EVENT]: produce((draftState, { payload: { values } }) => {
     draftState.events.push({
-      ...data,
+      ...values,
       id: ++id,
     });
   }),
-  [ACTION_TYPE.EDIT_EVENT]: produce((draftState, { payload: { eventId, data } }) => {
+  [ACTION_TYPE.EDIT_EVENT]: produce((draftState, { payload: { eventId, values } }) => {
     const eventIndex = draftState.events.findIndex(event => event.id === eventId);
     if (eventIndex !== -1) {
       draftState.events[eventIndex] = {
         ...draftState.events[eventIndex],
-        ...data,
+        ...values,
       };
     }
   }),
