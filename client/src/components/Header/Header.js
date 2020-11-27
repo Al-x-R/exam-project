@@ -5,6 +5,9 @@ import CONSTANTS, { ROLES } from '../../constants';
 import { useDispatch, useSelector } from 'react-redux';
 import { logoutRequest } from '../../app/store/actions/authActionCreators';
 import { authSelector } from '../../app/store/selectors';
+import {mdiViewListOutline} from '@mdi/js';
+import Icon from '@mdi/react';
+import { Badge } from '@material-ui/core';
 
 function Header() {
   const { isFetching, user } = useSelector(authSelector);
@@ -71,6 +74,21 @@ function Header() {
             className={styles.emailIcon}
             alt="email"
           />
+          <Link to="/events" >
+            <div>
+              <Badge badgeContent={1} color="error" className={styles.badge}>
+                <Icon path={mdiViewListOutline}
+                      className={styles.listIcon}
+                      title="Events list"
+                      size={0.95}
+                      color="#96a5a5"
+                />
+              </Badge>
+            </div>
+
+
+          </Link>
+
         </>
       );
     } else {
