@@ -1,0 +1,44 @@
+.event
+  display: flex
+  align-items: center
+
+  .progress
+    background-color: #d8d8d8
+    border-radius: 7px
+    position: relative
+    margin: 15px 10px 15px 0
+    height: 50px
+    width: 800px
+
+    .progress_done
+      background: linear-gradient(to left, #95e291, #73bf4a)
+      border-radius: 7px
+      color: #fff
+      display: flex
+      align-items: center
+      justify-content: space-between
+      height: 100%
+      width: 0
+      opacity: 0
+      transition: 0.3s ease 0.3s
+    .description
+      padding: 0 10px
+      margin: 0
+      color: black
+      z-index: 5
+      position: absolute
+      left: 10px
+      bottom: 17px
+
+    .timer
+      padding: 0 10px
+      margin: 0
+      position: absolute
+      right: 10px
+      bottom: 17px
+
+    .icons
+      display: flex
+
+      .icon
+        margin-left: 20px
