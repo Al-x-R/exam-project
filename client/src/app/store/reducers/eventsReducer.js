@@ -15,8 +15,8 @@ const handlers = {
       id: ++id,
     });
   }),
-  [ACTION_TYPE.EDIT_EVENT]: produce((draftState, { payload: { eventId, values } }) => {
-    const eventIndex = draftState.events.findIndex(event => event.id === eventId);
+  [ACTION_TYPE.EDIT_EVENT]: produce((draftState, { payload: { id, values } }) => {
+    const eventIndex = draftState.events.findIndex(event => event.id === id);
     if (eventIndex !== -1) {
       draftState.events[eventIndex] = {
         ...draftState.events[eventIndex],
@@ -24,14 +24,14 @@ const handlers = {
       };
     }
   }),
-  [ACTION_TYPE.DELETE_EVENT]: produce((draftState, { payload: { eventId } }) => {
-    const eventIndex = draftState.events.findIndex(event => event.id === eventId);
+  [ACTION_TYPE.DELETE_EVENT]: produce((draftState, { payload: { id } }) => {
+    const eventIndex = draftState.events.findIndex(event => event.id === id);
     if (eventIndex !== -1) {
       draftState.events.splice(eventIndex, 1);
     }
   }),
 };
 
-const eventsReducer = createReducer(initialState, handlers)
+const eventsReducer = createReducer(initialState, handlers);
 
 export default eventsReducer;

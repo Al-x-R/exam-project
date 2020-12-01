@@ -7,17 +7,17 @@ export const addEvent = values => ({
   },
 });
 
-export const editEvent = (eventIndex, values) => ({
+export const editEvent = (id, values) => ({
   type: ACTION_TYPE.EDIT_EVENT,
   payload: {
-    eventIndex,
+    id,
     values,
   },
 });
 
-export const deleteEvent = (eventIndex) => ({
+export const deleteEvent = (id) => ({
   type: ACTION_TYPE.DELETE_EVENT,
   payload: {
-    eventIndex,
+    id,
   },
 });
