@@ -1,0 +1,46 @@
+.main
+  padding: 30px 0
+  width: 100%
+  min-height: 100vh
+  background: rgba(0, 0, 0, .36)
+
+  .container
+    width: 90%
+    margin: auto
+
+    .header
+      display: flex
+      justify-content: space-between
+      flex-wrap: wrap
+
+      .createEventBtn
+        display: flex
+        justify-content: center
+        align-items: center
+        height: 45px
+        padding: 0 15px
+        color: white
+        border-radius: 5px
+        background: #f18762
+        border: 1px solid #e1724c
+        text-decoration: none
+        font-size: 18px
+        font-weight: bold
+        line-height: 22px
+        @media(max-width: 500px)
+          margin: 15px auto 0
+          width: 90%
+
+        &:hover
+          background: #747676
+          border: 1px solid #555757
+
+    .pageTitle
+      padding: 80px 0 50px 0
+      text-transform: uppercase
+      font-size: 35px
+      color: white
+      text-align: center
+      @media(max-width: 590px)
+        font-size: 30px
+        padding: 50px 0 30px 0
