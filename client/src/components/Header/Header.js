@@ -5,12 +5,28 @@ import CONSTANTS, { ROLES } from '../../constants';
 import { useDispatch, useSelector } from 'react-redux';
 import { logoutRequest } from '../../app/store/actions/authActionCreators';
 import { authSelector } from '../../app/store/selectors';
-import {mdiViewListOutline} from '@mdi/js';
+import { mdiViewListOutline } from '@mdi/js';
 import Icon from '@mdi/react';
 import { Badge } from '@material-ui/core';
 
 function Header() {
   const { isFetching, user } = useSelector(authSelector);
+
+  const { events } = useSelector(state => state.events);
+
+  const currentTime = new Date().getTime();
+
+  const timeToNotify = events.map((event) => {
+    return (new Date(event.eventDate).getTime()) - event.notifyTime;
+  });
+
+  let badgeСount = 0;
+
+  for (let i = 0; i < timeToNotify.length; i++) {
+    if (currentTime > timeToNotify[i]) {
+      badgeСount++;
+    }
+  }
 
   const dispatch = useDispatch();
 
@@ -74,9 +90,9 @@ function Header() {
             className={styles.emailIcon}
             alt="email"
           />
-          <Link to="/events" >
+          <Link to="/events">
             <div>
-              <Badge badgeContent={1} color="error" className={styles.badge}>
+              <Badge badgeContent={badgeСount} color="error">
                 <Icon path={mdiViewListOutline}
                       className={styles.listIcon}
                       title="Events list"
@@ -85,10 +101,7 @@ function Header() {
                 />
               </Badge>
             </div>
-
-
           </Link>
-
         </>
       );
     } else {
@@ -119,7 +132,7 @@ function Header() {
       </div>
       <div className={styles.loginSignnUpHeaders}>
         <div className={styles.numberContainer}>
-          <img src={`${CONSTANTS.STATIC_IMAGES_PATH}phone.png`} alt="phone" />
+          <img src={`${CONSTANTS.STATIC_IMAGES_PATH}phone.png`} alt="phone"/>
           <span>(877)&nbsp;355-3585</span>
         </div>
         <div className={styles.userButtonsContainer}>
@@ -128,8 +141,8 @@ function Header() {
       </div>
       <div className={styles.navContainer}>
         <Link
-            to="/"
-            style={{ textDecoration: 'none' }}
+          to="/"
+          style={{ textDecoration: 'none' }}
         ><img
           src={`${CONSTANTS.STATIC_IMAGES_PATH}blue-logo.png`}
           className={styles.logo}
