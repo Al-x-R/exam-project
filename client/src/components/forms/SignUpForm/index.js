@@ -87,7 +87,7 @@ function SignUpForm(props) {
                     </div>
                     <div className={styles.wrapper}>
                         <Field name="confirmPassword"
-                               // type="password"
+                               type="password"
                                placeholder="Password confirmation"
                                className={styles.input}/>
                         <ErrorMessage name="confirmPassword" component="span" className={styles.error}/>

@@ -11,8 +11,8 @@ const EventForm = (props) => {
   const history = useHistory();
 
   const validationSchema = Yup.object({
-    title: Yup.string().trim().required(),
-    eventDate: Yup.date().min(new Date()).required(),
+    title: Yup.string().trim().required('This is required field'),
+    eventDate: Yup.date().min(new Date()).required('Date cannot be less than the current time'),
   });
 
   const day = 1000 * 60 * 60 * 24;
@@ -73,12 +73,12 @@ const EventForm = (props) => {
           <div className={styles.field}>
             <label className={styles.label}>Enter reminder name</label>
             <Field name="title" placeholder="event name" className={styles.input}/>
-            <ErrorMessage name="title"/>
+            <ErrorMessage name="title" component="span"  className={styles.error}/>
           </div>
           <div className={styles.field}>
             <label className={styles.label}>Select a reminder time</label>
             <Field name="eventDate" type="datetime-local" className={styles.input}/>
-            <ErrorMessage name="eventDate"/>
+            <ErrorMessage name="eventDate" component="span"  className={styles.error}/>
           </div>
           <div className={styles.field}>
             <label className={styles.label}> Select a notification time </label>
