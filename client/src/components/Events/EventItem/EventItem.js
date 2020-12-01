@@ -1,14 +1,12 @@
-import React, {useEffect, useState, useCallback} from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect, useState, useCallback } from 'react';
+import { useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { deleteEvent } from '../../../app/store/actions/eventsActionCreators';
 import styles from './EventItem.module.sass';
-import intervalToDuration from 'date-fns/intervalToDuration';
-import Icon from '@mdi/react'
-import { mdiSquareEditOutline, mdiBeakerRemoveOutline } from '@mdi/js'
+import Icon from '@mdi/react';
+import { mdiBeakerRemoveOutline } from '@mdi/js';
 
-
-const EventItem = ({title, id, eventDate, startEvent}) => {
+const EventItem = ({ title, id, eventDate, startEvent }) => {
   const [style, setStyle] = useState({});
 
   const dispatch = useDispatch();
@@ -22,10 +20,11 @@ const EventItem = ({title, id, eventDate, startEvent}) => {
     actions.deleteEvent(id);
   }, [id, actions]);
 
-  const interval = intervalToDuration({
-    start: currentTime,
-    end: estimatedTime,
-  });
+  const distance = estimatedTime - currentTime;
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
   const progress = () => {
     if (estimatedTime > currentTime) {
@@ -40,14 +39,11 @@ const EventItem = ({title, id, eventDate, startEvent}) => {
     }
   };
 
-
   useEffect(() => {
     setTimeout(() => {
       progress();
     }, 1000);
-  } );
-
-  const {years, months, days, hours, minutes, seconds} = interval;
+  });
 
   return (
     <div className={styles.event}>
@@ -55,26 +51,20 @@ const EventItem = ({title, id, eventDate, startEvent}) => {
         <div className={styles.progress_done} style={style}>
         </div>
         <p className={styles.description}>{title}</p>
-        <p className={styles.timer}>{`${years}y ${months}m 
+        <p className={styles.timer}>{` 
         ${days}d ${hours}h ${minutes}m ${seconds}s`}</p>
       </div>
       <div className={styles.icons}>
-        <Icon path={mdiSquareEditOutline}
-              className={styles.icon}
-              title="Edit event"
-              size={2}
-              color="red"
-              />
-              <Icon path={mdiBeakerRemoveOutline}
+        <Icon onClick={handleRemoveBtnClick}
+              path={mdiBeakerRemoveOutline}
               className={styles.icon}
               title="Remove event"
+              cursor="pointer"
               size={2}
-              color="red"
-              />
+              color="#555757"
+        />
       </div>
     </div>
-
-
   );
 };
 
