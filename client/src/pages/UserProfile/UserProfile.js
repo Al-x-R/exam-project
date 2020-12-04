@@ -10,10 +10,11 @@ import {
   cashOut,
   changeProfileModeView,
   clearPaymentStore,
-} from "../../actions/actionCreator";
+} from "../../app/store/actions/actionCreator";
 import Error from "../../components/Error/Error";
 
 const UserProfile = (props) => {
+
   const pay = (values) => {
     const { number, expiry, cvc, sum } = values;
     props.cashOut({ number, expiry, cvc, sum });
@@ -84,7 +85,7 @@ const UserProfile = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  const { balance, role } = state.auth;
+  const { balance, role } = state.auth.user;
   const { profileModeView } = state.userProfile;
   const { error } = state.payment;
   return { balance, role, profileModeView, error };

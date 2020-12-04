@@ -5,7 +5,7 @@ import styles from "../CatalogListContainer/CatalogListContainer.module.sass";
 import {
   changeShowModeCatalog,
   deleteCatalog,
-} from "../../../../actions/actionCreator";
+} from "../../../../app/store/actions/actionCreator";
 
 const CatalogList = (props) => {
   const goToCatalog = (event, catalog) => {

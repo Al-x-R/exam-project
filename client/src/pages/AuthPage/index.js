@@ -1,10 +1,10 @@
 import React, {useCallback, useLayoutEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {Link, Redirect, useLocation} from 'react-router-dom';
-import {loginRequest, signUpRequest} from '../../actions/authActionCreators';
+import {loginRequest, signUpRequest} from '../../app/store/actions/authActionCreators';
 import SignInForm from '../../components/forms/SignInForm';
 import SignUpForm from '../../components/forms/SignUpForm';
-import {userSelector} from '../../selectors';
+import {userSelector} from '../../app/store/selectors';
 import styles from './AuthPage.module.sass';
 import logo from './logo.png';
 import PricingQuestionsSection from '../../components/PricingQuestionsSection/PricingQuestionsSection';

@@ -63,20 +63,19 @@ class AuthApi {
     interceptRequest = config => {
         this.#_token = localStorage.getItem(ACCESS_TOKEN_KEY);
         if (this.#_token) {
-            return config.headers['Authorization'] = `Bearer ${this.#_token}`;
+            config.headers['Authorization'] = `Bearer ${this.#_token}`;
         }
         return config;
     };
 
 
     interceptResponse = response => {
-        console.log(response);
         const {
             config: {url},
             data,
         } = response;
 
-        if (url.indexOf(this.url) === 0) {
+        if (url.indexOf(this.url) === 25) {
             const {
                 data: {
                     tokenPair: {accessToken, refreshToken},

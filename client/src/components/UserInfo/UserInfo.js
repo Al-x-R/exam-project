@@ -4,7 +4,7 @@ import UpdateUserInfoForm from "../../components/UpdateUserInfoForm/UpdateUserIn
 import {
     updateUserData,
     changeEditModeOnUserProfile,
-} from "../../actions/actionCreator";
+} from "../../app/store/actions/actionCreator";
 import CONSTANTS from "../../constants";
 import styles from "./UserInfo.module.sass";
 
@@ -91,8 +91,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        updateUser: (user) => dispatch(updateUserData(user)),
-        changeEditMode: (user) => dispatch(changeEditModeOnUserProfile(user)),
+        updateUser: (data) => dispatch(updateUserData(data)),
+        changeEditMode: (data) => dispatch(changeEditModeOnUserProfile(data)),
     };
 };
 

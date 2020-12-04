@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
-import { payRequest, clearPaymentStore } from "../../actions/actionCreator";
+import { payRequest, clearPaymentStore } from "../../app/store/actions/actionCreator";
 import PayForm from "../../components/PayForm/PayForm";
 import styles from "./Payment.module.sass";
 import isEmpty from "lodash/isEmpty";

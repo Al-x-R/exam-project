@@ -5,7 +5,7 @@ import {
   changeTypeOfChatAdding,
   changeShowAddChatToCatalogMenu,
   getCatalogList,
-} from "../../../../actions/actionCreator";
+} from "../../../../app/store/actions/actionCreator";
 import styles from "./CatalogCreation.module.sass";
 import AddToCatalog from "../AddToCatalog/AddToCatalog";
 import classNames from "classnames";

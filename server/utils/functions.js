@@ -32,7 +32,7 @@ module.exports.createWhereForAllContests = (
   if (awardSort) object.order.push(['prize', awardSort]);
   Object.assign(object.where, {
     status: {
-      [bd.Sequelize.Op.or]: [
+      [db.Sequelize.Op.or]: [
         CONSTANTS.CONTEST_STATUS_FINISHED,
         CONSTANTS.CONTEST_STATUS_ACTIVE,
       ],

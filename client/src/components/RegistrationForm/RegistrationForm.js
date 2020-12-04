@@ -1,7 +1,7 @@
 import React from 'react';
 import Error from '../Error/Error';
 import { connect } from 'react-redux';
-import { authActionRegister, clearAuth } from '../../actions/actionCreator';
+import { authActionRegister, clearAuth } from '../../app/store/actions/actionCreator';
 import styles from './RegistrationForm.module.sass';
 import { Field, reduxForm } from 'redux-form';
 import FormInput from '../FormInput/FormInput';
