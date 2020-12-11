@@ -16,6 +16,8 @@ const RecoverPassword = () => {
     setIsForgot(location.pathname === '/forgot_password');
   }, [location.pathname]);
 
+  const tokenValue = location.pathname.split('/')[2];
+
   return (
     <>
       <section className={styles.main}>
@@ -31,7 +33,7 @@ const RecoverPassword = () => {
           </div>
           <div className={styles.formBox}>
             <h2>{pageTitle}</h2>
-            {isForgot ? <ForgotPasswordForm /> : <ConfirmPasswordByLink />}
+            {isForgot ? <ForgotPasswordForm/> : <ConfirmPasswordByLink value={tokenValue}/>}
           </div>
         </div>
       </section>

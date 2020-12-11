@@ -1,10 +1,9 @@
 import React, { useCallback } from 'react';
 import { Form, Formik } from 'formik';
 import styles from '../ForgotPasswordForm/ForgotPasswordForm.module.sass';
-import PropTypes from 'prop-types';
 
 const ConfirmPasswordByLink = (props) => {
-  const { onSubmit } = props;
+  const { onSubmit, value } = props;
 
   const handleSubmit = useCallback(
     (values, formikBag) => {
@@ -14,8 +13,7 @@ const ConfirmPasswordByLink = (props) => {
   );
 
   const initialValues = {
-    email: '',
-    password: '',
+    token: value,
   };
 
   return (
@@ -30,10 +28,6 @@ const ConfirmPasswordByLink = (props) => {
       )}
     </Formik>
   );
-};
-
-ConfirmPasswordByLink.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
 };
 
 export default ConfirmPasswordByLink;
