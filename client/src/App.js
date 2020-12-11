@@ -31,7 +31,7 @@ function App() {
       dispatch(
         refreshAuthRequest({
           refreshToken: localStorage.getItem(REFRESH_TOKEN_KEY),
-        })
+        }),
       );
     }
   }, []);
@@ -49,12 +49,13 @@ function App() {
         draggable
         pauseOnHover
       />
-      <Suspense fallback={<Spinner />}>
+      <Suspense fallback={<Spinner/>}>
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/forgot_password" component={RecoverPassword} />
-          <Route path={['/login', '/signup']} component={AuthPage} />
-          <Route path='/howitwork' component={HowItWork} />
+          <Route exact path="/" component={Home}/>
+          <Route path={["/forgot_password", "/update-password/:token"]} component={RecoverPassword}/>
+          {/*<Route path={['/update-password']} component={ConfirmPasswordByLink} />*/}
+          <Route path={['/login', '/signup']} component={AuthPage}/>
+          <Route path='/howitwork' component={HowItWork}/>
           {/*<Route exact path="/login" component={LoginPage} />
         <Route exact path="/signup" component={RegistrationPage} />*/}
           <PrivateRoute
@@ -99,13 +100,13 @@ function App() {
               title="LOGO"
             />
           </PrivateRoute>
-          <PrivateRoute exact path="/dashboard" component={Dashboard} />
-          <PrivateRoute exact path="/contest/:id" component={ContestPage} />
-          <PrivateRoute exact path="/account" component={UserProfile} />
-          <Route component={NotFound} />
+          <PrivateRoute exact path="/dashboard" component={Dashboard}/>
+          <PrivateRoute exact path="/contest/:id" component={ContestPage}/>
+          <PrivateRoute exact path="/account" component={UserProfile}/>
+          <Route component={NotFound}/>
         </Switch>
       </Suspense>
-      <ChatContainer />
+      <ChatContainer/>
     </Router>
   );
 }
