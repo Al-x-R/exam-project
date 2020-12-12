@@ -12,7 +12,7 @@ const initialValues = {
 
 const passwordRule = [
   /(?=.*?\d)(?=.*?[A-Z])(?=.*?[a-z])^.{8,255}$/,
-  'Your password must be at least 8 characters, and include at least one lowercase letter, one uppercase letter, and a number. ',
+  'Your password must be at least 8 characters, and include at least one uppercase letter, and a number. ',
 ];
 
 const validationSchema = Yup.object({

@@ -14,7 +14,7 @@ $white: white
     width: 48%
     @media(max-width: 580px)
       width: 100%
-      margin: 0 10px
+      margin: 0 10px 10px
 
     .input
       width: 100%
@@ -25,24 +25,26 @@ $white: white
       font-size: 18px
       padding: 23px 20px
       outline: none
-      margin-bottom: 15px
+      margin-bottom: 25px
 
     .error
+      width: 100%
       position: absolute
-      max-width: 275px
-      top: 0
+      bottom: 0
       left: 0
       z-index: 10
-      padding: 5px 25px
+      padding: 3px 25px
       font-size: 13px
       text-align: left
-      color: black
+      color: white
       border: 1px solid red
       border-radius: 6px
-      background-color: rgba(236, 72, 72, 0.5)
+      background-color: rgba(253, 77, 77, 0.5)
       text-overflow: ellipsis
       white-space: nowrap
       overflow: hidden
+      //@media(max-width: 580px)
+      //  width: 100%
 
   .choseRoleContainer
     width: 100%
