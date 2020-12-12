@@ -41,12 +41,12 @@ function SignInForm(props) {
                     </div>
                     <div className={styles.wrapper}>
                         <Field name="password"
-                               // type="password"
+                               type="password"
                                placeholder="Password"
                                className={styles.input}/>
                         <ErrorMessage name="password" component="span" className={styles.error}/>
                     </div>
-                    <Link to='/forgot_password' className={styles.forgotPassword}>Forgot Password</Link>
+                    <Link to='/forgot-password' className={styles.forgotPassword}>Forgot Password</Link>
                     <button type="submit" className={styles.submitButton}>Login</button>
                 </Form>
             )}

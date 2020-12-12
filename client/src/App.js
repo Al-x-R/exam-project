@@ -52,7 +52,7 @@ function App() {
       <Suspense fallback={<Spinner/>}>
         <Switch>
           <Route exact path="/" component={Home}/>
-          <Route path={["/forgot_password", "/update-password/:token"]} component={RecoverPassword}/>
+          <Route path={["/forgot-password", "/update-password"]} component={RecoverPassword}/>
           {/*<Route path={['/update-password']} component={ConfirmPasswordByLink} />*/}
           <Route path={['/login', '/signup']} component={AuthPage}/>
           <Route path='/howitwork' component={HowItWork}/>

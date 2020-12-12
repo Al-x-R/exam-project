@@ -4,6 +4,7 @@ import styles from '../ForgotPasswordForm/ForgotPasswordForm.module.sass';
 
 const ConfirmPasswordByLink = (props) => {
   const { onSubmit, value } = props;
+  console.log('value ==> ', value)
 
   const handleSubmit = useCallback(
     (values, formikBag) => {
@@ -15,6 +16,8 @@ const ConfirmPasswordByLink = (props) => {
   const initialValues = {
     token: value,
   };
+
+  console.log('initialValues ==> ', initialValues)
 
   return (
     <Formik

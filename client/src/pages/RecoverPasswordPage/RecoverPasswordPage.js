@@ -13,10 +13,13 @@ const RecoverPassword = () => {
   const pageTitle = isForgot ? 'Forgot Password' : 'Password change confirmation';
 
   useLayoutEffect(() => {
-    setIsForgot(location.pathname === '/forgot_password');
+    setIsForgot(location.pathname === '/forgot-password');
   }, [location.pathname]);
 
   const tokenValue = location.pathname.split('/')[2];
+
+  console.log(location)
+  console.log(tokenValue)
 
   return (
     <>

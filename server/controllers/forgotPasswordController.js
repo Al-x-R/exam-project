@@ -22,6 +22,7 @@ exports.forgotPassword = async (req, res, next) => {
       const hashedPass = await bcrypt.hash(password, 10);
 
       const payload = {
+        email,
         hashedPass,
       };
 
@@ -29,7 +30,7 @@ exports.forgotPassword = async (req, res, next) => {
         payload,
         tokenSecret,
         {
-          expiresIn: '5m',
+          expiresIn: '25h',
         },
       );
 
@@ -42,12 +43,12 @@ exports.forgotPassword = async (req, res, next) => {
       });
 
       const data = {
-        from: 'my.testing.super.email@gmail.com',
+        from: 'email@gmail.com',
         to: '85@gmail.com',
         subject: 'Password help has arrived',
         text: 'You received this message because you (or someone else) made a request to change the password for your account. \n\n'
           + 'please click on the following link or paste it into the browser to complete the process within ten minutes of  reciving it message\n\n'
-          + `http://localhost:3000/forgot_password/${token} \n\n`
+          + `http://localhost:3000/update-password/${token} \n\n`
           + 'if you did not request this, please ignore ignore this email',
       };
 
@@ -58,7 +59,10 @@ exports.forgotPassword = async (req, res, next) => {
             error: error.message,
           });
         }
-        return res.status(200).json({ message: "Email sent!" });
+        return res.status(200).send({
+          token: token,
+          message: "Email sent!",
+        });
       });
       return;
     }
@@ -68,4 +72,20 @@ exports.forgotPassword = async (req, res, next) => {
   } catch (e) {
     next(e);
   }
+};
+
+exports.updatePassword = async (req, res, next) => {
+  try {
+    const {
+      body: { token },
+    } = req;
+
+    res.status(201).send({
+      token
+    })
+
+  } catch (e)  {
+    next(e);
+  }
+
 };
