@@ -1,5 +1,5 @@
 const nodemailer = require('nodemailer');
-const { User } = require('../models');
+const { User, sequelize } = require('../models');
 const bcrypt = require('bcrypt');
 const config = require('../configs/config');
 const JwtService = require('../services/jwtService');
@@ -81,24 +81,20 @@ exports.updatePassword = async (req, res, next) => {
     } = req;
     if (token) {
       const decodeToken = jwt_decode(token);
-      console.log('decodeToken ==> ', decodeToken)
       const { email, hashedPass } = decodeToken;
       const userInstance = await User.findOne({
         where: { email },
       });
       if (userInstance) {
         try {
-          await userInstance.set(
-            'password', hashedPass ,
-            {raw: true}
-          ).save();
+          await sequelize.query(`UPDATE "Users" SET "passwordHash"='${hashedPass}' WHERE "email" = '${email}';`);
         } catch (e) {
           next(e);
         }
       }
       res.status(200).send({
         decodeToken,
-        userInstance,
+        userInstance: await userInstance.reload(),
       });
     }
   } catch (e) {
