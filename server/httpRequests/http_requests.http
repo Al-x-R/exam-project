@@ -1,0 +1,26 @@
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "customer@gmail.com",
+  "password": "Test1235"
+}
+
+###
+
+POST http://localhost:5000/api/forgot-password
+Content-Type: application/json
+
+{
+  "email": "customer@gmail.com",
+  "password": "Test1235"
+}
+
+###
+
+POST http://localhost:5000/api/update-password
+Content-Type: application/json
+
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImN1c3RvbWVyQGdtYWlsLmNvbSIsImhhc2hlZFBhc3MiOiIkMmIkMDUkSTVwNjBQSk1UNXFHWmYuSVJXSVg1T25MNUFOaDZKclN6TEhZL2tsMUM1d2NPcDhpTXNadEsiLCJpYXQiOjE2MDc4NjQ4MDQsImV4cCI6MTYwNzk1NDgwNH0.sHm8h6J3XxXvnV-no8W75HiGvWyw-GCqNMTk9waCcP0"
+}

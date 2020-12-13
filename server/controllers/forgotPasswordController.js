@@ -3,6 +3,8 @@ const { User } = require('../models');
 const bcrypt = require('bcrypt');
 const config = require('../configs/config');
 const JwtService = require('../services/jwtService');
+const jwt_decode = require('jwt-decode');
+const { SALT_ROUNDS } = require('./../constants');
 
 const {
   jwt: { tokenSecret },
@@ -19,7 +21,7 @@ exports.forgotPassword = async (req, res, next) => {
     });
 
     if (userInstance) {
-      const hashedPass = await bcrypt.hash(password, 10);
+      const hashedPass = await bcrypt.hash(password, SALT_ROUNDS);
 
       const payload = {
         email,
@@ -38,7 +40,7 @@ exports.forgotPassword = async (req, res, next) => {
         service: 'gmail',
         auth: {
           user: 'email@gmail.com',
-          pass: 'Test357',
+          pass: 'pass',
         },
       });
 
@@ -52,7 +54,6 @@ exports.forgotPassword = async (req, res, next) => {
           + 'if you did not request this, please ignore ignore this email',
       };
 
-      //send mail
       await transporter.sendMail(data, function (error, data) {
         if (error) {
           return res.json({
@@ -66,7 +67,6 @@ exports.forgotPassword = async (req, res, next) => {
       });
       return;
     }
-
     return res.status(400).json({ error: 'User with this email does not exists' });
 
   } catch (e) {
@@ -79,12 +79,29 @@ exports.updatePassword = async (req, res, next) => {
     const {
       body: { token },
     } = req;
-
-    res.status(201).send({
-      token
-    })
-
-  } catch (e)  {
+    if (token) {
+      const decodeToken = jwt_decode(token);
+      console.log('decodeToken ==> ', decodeToken)
+      const { email, hashedPass } = decodeToken;
+      const userInstance = await User.findOne({
+        where: { email },
+      });
+      if (userInstance) {
+        try {
+          await userInstance.set(
+            'password', hashedPass ,
+            {raw: true}
+          ).save();
+        } catch (e) {
+          next(e);
+        }
+      }
+      res.status(200).send({
+        decodeToken,
+        userInstance,
+      });
+    }
+  } catch (e) {
     next(e);
   }
 
