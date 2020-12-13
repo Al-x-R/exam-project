@@ -3,7 +3,7 @@ Content-Type: application/json
 
 {
   "email": "customer@gmail.com",
-  "password": "Test1235"
+  "password": "Test1236"
 }
 
 ###
@@ -13,7 +13,7 @@ Content-Type: application/json
 
 {
   "email": "customer@gmail.com",
-  "password": "Test1235"
+  "password": "Test1236"
 }
 
 ###
@@ -22,5 +22,5 @@ POST http://localhost:5000/api/update-password
 Content-Type: application/json
 
 {
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImN1c3RvbWVyQGdtYWlsLmNvbSIsImhhc2hlZFBhc3MiOiIkMmIkMDUkSTVwNjBQSk1UNXFHWmYuSVJXSVg1T25MNUFOaDZKclN6TEhZL2tsMUM1d2NPcDhpTXNadEsiLCJpYXQiOjE2MDc4NjQ4MDQsImV4cCI6MTYwNzk1NDgwNH0.sHm8h6J3XxXvnV-no8W75HiGvWyw-GCqNMTk9waCcP0"
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImN1c3RvbWVyQGdtYWlsLmNvbSIsImhhc2hlZFBhc3MiOiIkMmIkMDUkNXNOclo1Uzk2dVQyb2RUL1R2bi4yLm5WcTFDQ3BwUUNwdDBtNWlWeGgxcVJSblZVSFpaN2kiLCJpYXQiOjE2MDc4NzU0NTIsImV4cCI6MTYwNzg3NjM1Mn0.VM_x8-yKo7dtpRG04-jUgSMCwUtREcfQhCp3d244Djc"
 }

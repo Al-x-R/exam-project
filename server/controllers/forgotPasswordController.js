@@ -5,6 +5,8 @@ const config = require('../configs/config');
 const JwtService = require('../services/jwtService');
 const jwt_decode = require('jwt-decode');
 const { SALT_ROUNDS } = require('./../constants');
+const PASSWORD = process.env.PASSWORD
+const EMAIL = process.env.EMAIL
 
 const {
   jwt: { tokenSecret },
@@ -32,21 +34,21 @@ exports.forgotPassword = async (req, res, next) => {
         payload,
         tokenSecret,
         {
-          expiresIn: '25h',
+          expiresIn: '15m',
         },
       );
 
       let transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-          user: 'email@gmail.com',
-          pass: 'pass',
+          user: EMAIL,
+          pass: PASSWORD,
         },
       });
 
       const data = {
-        from: 'email@gmail.com',
-        to: '85@gmail.com',
+        from: EMAIL,
+        to: email,
         subject: 'Password help has arrived',
         text: 'You received this message because you (or someone else) made a request to change the password for your account. \n\n'
           + 'please click on the following link or paste it into the browser to complete the process within ten minutes of  reciving it message\n\n'
